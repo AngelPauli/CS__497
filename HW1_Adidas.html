@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+        <title>adidas</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    </head>
+    <body ></body>
+        <div class="container">
+            <br><h3 id="info">adidas<img src ="Adidas.png" width="50" height="70"></h3>
+            <br />
+            <br />
+            <!-- Task: add class="text-center" to the container div below-->
+            <div class="text-center">  
+            <!--[Task: Add a label and a text input.] -->
+            <label for="Search">Search:</label>
+            <input oninput="getvalue()" type="text" id="Search">
+            <p>Searching for <strong id="searchterm"> [Search term] </strong></p>
+
+            <script>
+                function getvalue(){
+                    let Search = document.getElementById('Search').value
+                    document.getElementById('searchterm').innerHTML = Search
+                }
+
+                function dismissFunction(num){
+                    let Button = document.getElementById('Dismiss' + num);
+                    if(Button.innerHTML == "Dismiss"){
+                        Button.innerHTML = "Dismissed";
+                        Button.style.backgroundColor = "red";
+                        Button.style.color = "white";
+
+                    }
+                    else {
+                        Button.innerHTML = "Dismiss";
+                        Button.style.backgroundColor = "white";
+                        Button.style.color = "red";
+                    }
+                } 
+                </script>   
+                
+            </div>
+            <hr /><br>
+    
+            <div class="row">
+                <div class="col-md-7">
+                    <!--[Task: add the product info for at least 4 items]-->
+
+                    <h2><a href="https://www.adidas.com/us/relaxed-strap-back-hat/CL5247.html">RELAXED STRAP-BACK HAT</a></h2>
+                    <div>Price $16</div>
+                    <p>A SIX-PANEL CAP WITH AN EMBROIDERED TREFOIL LOGO.
+                        This six-panel hat offers a classic baseball look. It's made of naturally breathable cotton twill and detailed with an embroidered Trefoil logo on the front. A cotton sweatband adds a soft, comfortable feel.</p>
+                    <div>Men's Hat</div>
+                    <div class="my-3">
+                        <button class="btn btn-outline-danger" id = 'Dismiss1' onclick = "dismissFunction(1)">Dismiss</button>
+
+                   </div>
+                </div>
+                <div class="col-md-5">
+                    <img src ="Hat.jpeg" width="400" height="400">
+                </div>
+            </div> 
+            <hr />
+          
+
+            <div class="row">
+                <div class="col-md-7">
+                    <!--[Task: add the product info for at least 4 items]-->
+                    
+
+                    <h2><a href="https://www.adidas.com/us/essentials-logo-fleece-hoodie/GL0719.html">ESSENTIALS LOGO FLEECE HOODIE</a></h2>
+                    <div>Price $33</div>
+                    <br>
+                    
+                    <p>A GO-TO HOODIE MADE FROM SOFT FLEECE FABRIC. The nice thing about a hoodie is being able to mix and match it with everything. This one from adidas is cut from a soft fleece fabric that's cozy enough to wear every day. Pair it with jeans, or keep it mellow and match it with sweats. You can't go wrong.</p>
+
+                    </p>
+                    <div>Category: Women's Hoodie</div>
+                    <div class="my-3">
+                        <button class="btn btn-outline-danger" id = 'Dismiss2' onclick = "dismissFunction(2)">Dismiss</button>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <!--[Task: Add an image of the product here, set it with an appropriate size.] -->
+                    <img src ="Adidas.go.jpeg" width="400" height="400">
+                </div>
+            </div> 
+            <hr />
+
+
+            <div class="row">
+                <div class="col-md-7">
+                    <!--[Task: add the product info for at least 4 items]-->
+                    
+
+                    <h2><a href="https://www.adidas.com/us/adicolor-classics-primeblue-sst-track-pants/GF0210.html">ADICOLOR CLASSICS PRIMEBLUE SST TRACK PANTS</a></h2>
+                    <div>Price $33</div>
+                    <br>
+                    
+                    <p>ONE HALF OF THE CLASSIC TRACK SUIT, WITH ALL OF THE COMFORT.These track pants are all about ease and comfort, the soft fabric is made from Parley Ocean Plastic yarn that's sourced from upcycled plastic waste.</p>
+                    <div>Category: Men's Pants</div>
+                    <div class="my-3">
+                        <button class="btn btn-outline-danger" id = 'Dismiss3' onclick = "dismissFunction(3)">Dismiss</button>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <!--[Task: Add an image of the product here, set it with an appropriate size.] -->
+                    <img src ="Pants.webp" width="400" height="400">
+                </div>
+            </div> 
+            <hr />
+
+
+            <div class="row">
+                <div class="col-md-7">
+                    <!--[Task: add the product info for at least 4 items]-->
+                    
+
+                    <h2><a href="https://www.adidas.com/us/nizza-rf-slip-shoes/S23725.html?pr=recently_viewed&slot=1">NIZZA RF SLIP SHOES</a></h2>
+                    <div>Price $49</div>
+                    <br>
+                    
+                    <p>A CASUAL, EVERYDAY SLIP-ON SHOE WITH RETRO INSPIRATION. When worlds collide, magic happens. These adidas shoes are proof. They take vintage B-ball DNA and mix it with a classic design from the world of skate. Voila. Now it's a slip-on. Slide in and go. Anywhere. Anytime.</p>
+                    <div>Category: Men's Shoes</div>
+                    <div class="my-3">
+                        <button class="btn btn-outline-danger"  id = 'Dismiss4' onclick = "dismissFunction(4)">Dismiss</button>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <!--[Task: Add an image of the product here, set it with an appropriate size.] -->
+                    <img src ="Adidas Shoes.webp" width="400" height="400">
+                </div>
+            </div> 
+            <hr />
+
+           
+           
+           
+           
+           
+           
+            <br>
+        </div>
+
+
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+

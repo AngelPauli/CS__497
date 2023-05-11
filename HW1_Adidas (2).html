@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>adidas</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <h3 id="info">adidas<img src="Adidas.png" width="50" height="70" /></h3>
+      <br />
+      <br />
+      <!-- Task: add class="text-center" to the container div below-->
+      <div class="text-center">
+        <!--[Task: Add a label and a text input.] -->
+        <label for="Search">Search:</label>
+        <input oninput="getvalue()" type="text" id="Search" />
+        <button id="filter">filter</button>
+        <p>Searching for <strong id="searchterm"> [Search term] </strong></p>
+
+        <script>
+          function getvalue() {
+            let Search = document.getElementById("Search").value;
+            document.getElementById("searchterm").innerHTML = Search;
+          }
+
+          function dismissFunction(num) {
+            let Button = document.getElementById("Dismiss" + num);
+            if (Button.innerHTML == "Dismiss") {
+              Button.innerHTML = "Dismissed";
+              Button.style.backgroundColor = "red";
+              Button.style.color = "white";
+            } else {
+              Button.innerHTML = "Dismiss";
+              Button.style.backgroundColor = "white";
+              Button.style.color = "red";
+            }
+          }
+        </script>
+      </div>
+      <hr />
+      <br />
+      <div id="items"></div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const container = document.getElementsByClassName("container");
+      const rows = document.getElementsByClassName("row");
+      const body = document.getElementsByTagName("body");
+      const output = document.getElementById("items");
+      document.getElementById("filter").addEventListener("click", filter);
+      function filter() {
+        let searchWord = document.getElementById("Search").value;
+        fetch("https://fakestoreapi.com/products?limit=10")
+          .then((response) => response.json())
+          .then((data) => {
+            let output = "";
+            data.forEach(function (item) {
+              const id = item.id;
+              const title = item.title;
+              const price = item.price;
+              const description = item.description;
+              const category = item.category;
+              const imageSrc = item.image;
+              const found = title.toLowerCase().match(searchWord.toLowerCase());
+              if (found != null) {
+                output += `
+                <div class="row">
+                    <div class="col-md-7">
+                        <h2>${title}</a></h2>
+                        <div>Price $${price}</div>
+                        <br>
+                        <p>${description}</p>
+                        <div>Category: ${category}</div>
+                        <div class="my-3">
+                            <button class="btn btn-outline-danger"  id = 'Dismiss${id}' onclick = "dismissFunction(${id})">Dismiss</button>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <img src ="${imageSrc}" width="400" height="400">
+                    </div>
+                </div>
+                <hr />`;
+              }
+            });
+            items.innerHTML = output;
+          });
+      }
+      function getItems() {
+        fetch("https://fakestoreapi.com/products?limit=10")
+          .then((response) => response.json())
+          .then((data) => {
+            let output = "";
+            data.forEach(function (item) {
+              const id = item.id;
+              const title = item.title;
+              const price = item.price;
+              const description = item.description;
+              const category = item.category;
+              const imageSrc = item.image;
+              output += `
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h2>${title}</a></h2>
+                            <div>Price $${price}</div>
+                            <br>
+                            <p>${description}</p>
+                            <div>Category: ${category}</div>
+                            <div class="my-3">
+                                <button class="btn btn-outline-danger"  id = 'Dismiss${id}' onclick = "dismissFunction(${id})">Dismiss</button>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <img src ="${imageSrc}" width="400" height="400">
+                        </div>
+                    </div>
+                    <hr />`;
+            });
+            items.innerHTML = output;
+          });
+      }
+      getItems();
+    </script>
+  </body>
+</html>
